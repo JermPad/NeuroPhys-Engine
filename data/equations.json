@@ -1,0 +1,27 @@
+[
+    {
+        "id": "eq_kerr_metric_symbolic",
+        "name": "Kerr metric symbolic form",
+        "expression": "ds^2 = ...",
+        "tags": ["Kerr", "metric", "spacetime"],
+        "related_concepts": ["concept_kerr_metric"],
+        "notes": "Placeholder symbolic form for the Kerr geometry."
+    },
+    {
+        "id": "eq_effective_potential",
+        "name": "Effective potential",
+        "expression": "V(a) = ...",
+        "variables": ["a", "sigma", "p"],
+        "tags": ["potential", "throat", "dynamics"],
+        "related_concepts": ["concept_wormhole_throat", "concept_stability"],
+        "notes": "Represents an effective potential governing throat evolution."
+    },
+    {
+        "id": "eq_effective_potential_second_derivative",
+        "name": "Second derivative stability criterion",
+        "expression": "V''(a_0) > 0",
+        "variables": ["stability", "equilibrium", "criterion"],
+        "related_concepts": ["concept_stability", "concept_wormhole_throat"],
+        "notes": "A common local stability condition near equilibrium."
+    }
+]

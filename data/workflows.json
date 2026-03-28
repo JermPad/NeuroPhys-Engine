@@ -1,0 +1,30 @@
+[
+    {
+        "id": "workflow_basic_stability",
+        "name": "Basic throat stability workflow",
+        "steps": [
+            "Define the throat radius as a dynamical variable.",
+            "Construct the effective potential",
+            "Find equilibrium radius a_0.",
+            "Compute the second derivative of the potential at a_0.",
+            "Interpret the sign of V''(a_0)."
+        ],
+        "tags": ["stability", "wormhole", "workflow"],
+        "related_concepts": ["concept_stability", "concept_wormhole_throat"],
+        "related_equations": ["eq_effective_potential", "eq_effective_potential_second_derivative"],
+        "notes": "Starter workflow for local stability analysis."
+    },
+    {
+        "id": "workflow_kerr_setup",
+        "name": "Kerr geometry setup workflow",
+        "steps": [
+            "Choose coordinates and parameterization.",
+            "Write the Kerr metric components.",
+            "Identify geometric quantities needed for the shell construction."
+        ],
+        "tags": ["kerr", "setup", "geometry"],
+        "related_concepts": ["concept_kerr_metric"],
+        "related_equations": ["eq_kerr_metric_symbolic"],
+        "notes": "Basic setup steps before a shell or matching calculation."
+    }
+]

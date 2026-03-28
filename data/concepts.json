@@ -1,0 +1,29 @@
+[
+    {
+        "id": "concept_kerr_metric",
+        "name": "Kerr metric",
+        "category": "spacetime",
+        "tags": ["Kerr", "rotation", "black hole", "metric"],
+        "related_equations": ["eq_kerr_metric_symbolic"],
+        "related_concepts": ["concept_event_horizon", "concept_stability"],
+        "notes": "Describes rotating black hole spacetime."
+    },
+    {
+        "id": "concept_stability",
+        "name": "Stability analysis",
+        "category": "analysis",
+        "tags": ["stability", "perturbation", "equilibrium"],
+        "related_equations": ["eq_effective_potential_second_derivative"],
+        "related_concepts": ["concept_kerr_metric", "concept_wormhole_throat"],
+        "notes": "Used to test whether a configuration remains near equilibrium under perturbatins."
+    },
+    {
+        "id": "concept_wormhole_throat",
+        "name": "Wormhole throat",
+        "category": "geometry",
+        "tags": ["wormhole","throat", "junction surface"],
+        "related_equations": ["eq_effective_potential"],
+        "related_concepts": ["concept_stability", "concept_kerr_metric"],
+        "notes": "The minimal-area hypersurface connecting regions in a wormhole model."
+    }
+]
