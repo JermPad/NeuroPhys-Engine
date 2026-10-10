@@ -1,30 +1,73 @@
 [
     {
+        "id": "workflow_kerr_setup",
+        "name": "Kerr geometry setup workflow",
+        "steps": [
+            "Choose Boyer-Lindquist coordinates and parameters (M, a).",
+            "Write Sigma, Delta, and the Kerr line element.",
+            "Locate r_+ and the static-limit surface.",
+            "Identify induced metric quantities needed for a later shell matching."
+        ],
+        "tags": ["kerr", "setup", "geometry", "coordinates"],
+        "related_concepts": ["concept_kerr_metric", "concept_boyer_lindquist", "concept_event_horizon", "concept_ergosphere"],
+        "related_equations": ["eq_kerr_metric_symbolic", "eq_kerr_sigma", "eq_kerr_delta", "eq_kerr_outer_horizon"],
+        "notes": "Basic setup steps before a shell or matching calculation."
+    },
+    {
+        "id": "workflow_schwarzschild_limit",
+        "name": "Schwarzschild-limit check",
+        "steps": [
+            "Start from the Kerr line element.",
+            "Set a=0 and simplify Sigma and Delta.",
+            "Confirm the metric reduces to Schwarzschild.",
+            "Confirm r_+ reduces to 2M and the ergosphere collapses to the horizon."
+        ],
+        "tags": ["Schwarzschild", "limit", "consistency", "Kerr"],
+        "related_concepts": ["concept_schwarzschild", "concept_kerr_metric", "concept_ergosphere"],
+        "related_equations": ["eq_kerr_metric_symbolic", "eq_schwarzschild_metric", "eq_kerr_outer_horizon"],
+        "notes": "Sanity-check reduction of rotating geometry to the static case."
+    },
+    {
+        "id": "workflow_thin_shell_construction",
+        "name": "Thin-shell wormhole construction",
+        "steps": [
+            "Choose interior and exterior metrics (Schwarzschild or Kerr).",
+            "Cut each manifold at a radius a > r_+ and identify the two boundaries.",
+            "Impose Israel junction conditions and read off S_ab.",
+            "Check the flare-out / minimal-area condition at the throat."
+        ],
+        "tags": ["wormhole", "thin shell", "Israel", "construction"],
+        "related_concepts": ["concept_wormhole_throat", "concept_israel_junction", "concept_surface_stress", "concept_flare_out"],
+        "related_equations": ["eq_israel_lanczos", "eq_flare_out", "eq_effective_potential"],
+        "notes": "Assemble a traversable thin-shell throat from two cut-and-paste regions."
+    },
+    {
+        "id": "workflow_energy_condition_check",
+        "name": "Throat energy-condition check",
+        "steps": [
+            "Obtain surface density and pressure from the Lanczos equation.",
+            "Form T_mu_nu k^mu k^nu for radial null vectors on the shell.",
+            "Test whether the NEC holds.",
+            "If it fails, record the exotic-matter requirement at the throat."
+        ],
+        "tags": ["NEC", "exotic matter", "energy condition", "workflow"],
+        "related_concepts": ["concept_exotic_matter", "concept_surface_stress", "concept_israel_junction"],
+        "related_equations": ["eq_null_energy_condition", "eq_israel_lanczos"],
+        "notes": "Standard check that a constructed throat needs exotic matter."
+    },
+    {
         "id": "workflow_basic_stability",
         "name": "Basic throat stability workflow",
         "steps": [
             "Define the throat radius as a dynamical variable.",
-            "Construct the effective potential",
+            "Reduce the Israel matching to an effective potential V(a).",
             "Find equilibrium radius a_0.",
             "Compute the second derivative of the potential at a_0.",
             "Interpret the sign of V''(a_0)."
         ],
         "tags": ["stability", "wormhole", "workflow"],
-        "related_concepts": ["concept_stability", "concept_wormhole_throat"],
-        "related_equations": ["eq_effective_potential", "eq_effective_potential_second_derivative"],
+        "related_concepts": ["concept_stability", "concept_wormhole_throat", "concept_israel_junction"],
+        "related_equations": ["eq_effective_potential", "eq_effective_potential_second_derivative", "eq_israel_lanczos"],
         "notes": "Starter workflow for local stability analysis."
-    },
-    {
-        "id": "workflow_kerr_setup",
-        "name": "Kerr geometry setup workflow",
-        "steps": [
-            "Choose coordinates and parameterization.",
-            "Write the Kerr metric components.",
-            "Identify geometric quantities needed for the shell construction."
-        ],
-        "tags": ["kerr", "setup", "geometry"],
-        "related_concepts": ["concept_kerr_metric"],
-        "related_equations": ["eq_kerr_metric_symbolic"],
-        "notes": "Basic setup steps before a shell or matching calculation."
     }
 ]

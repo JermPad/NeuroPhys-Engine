@@ -1,5 +1,5 @@
 from dataclasses import dataclass, field
-from typing import List, Dict
+from typing import Dict, List, Optional
 
 
 @dataclass
@@ -20,6 +20,7 @@ class Equation:
     variables: List[str] = field(default_factory=list)
     tags: List[str] = field(default_factory=list)
     related_concepts: List[str] = field(default_factory=list)
+    related_equations: List[str] = field(default_factory=list)
     notes: str = ""
 
 @dataclass
@@ -33,7 +34,16 @@ class Workflow:
     notes: str = ""
 
 @dataclass
+class RankedItem:
+    score: float
+    origin: str
+    via: Optional[str] = None
+    hops: int = 0
+
+
+@dataclass
 class QueryResult:
     concepts: List[Concept]
     equations: List[Equation]
     workflows: List[Workflow]
+    ranks: Dict[str, RankedItem] = field(default_factory=dict)
