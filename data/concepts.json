@@ -1,12 +1,84 @@
 [
     {
+        "id": "concept_boyer_lindquist",
+        "name": "Boyer-Lindquist coordinates",
+        "category": "coordinates",
+        "tags": ["Kerr", "coordinates", "chart"],
+        "related_equations": ["eq_kerr_metric_symbolic", "eq_kerr_sigma", "eq_kerr_delta"],
+        "related_concepts": ["concept_kerr_metric", "concept_schwarzschild"],
+        "notes": "Standard coordinate chart for Kerr. Reduces to Schwarzschild coordinates when a=0."
+    },
+    {
         "id": "concept_kerr_metric",
         "name": "Kerr metric",
         "category": "spacetime",
         "tags": ["Kerr", "rotation", "black hole", "metric"],
-        "related_equations": ["eq_kerr_metric_symbolic"],
-        "related_concepts": ["concept_event_horizon", "concept_stability"],
-        "notes": "Describes rotating black hole spacetime."
+        "related_equations": ["eq_kerr_metric_symbolic", "eq_kerr_sigma", "eq_kerr_delta", "eq_kerr_outer_horizon"],
+        "related_concepts": ["concept_boyer_lindquist", "concept_event_horizon", "concept_ergosphere", "concept_schwarzschild", "concept_stability"],
+        "notes": "Describes rotating black hole spacetime in Boyer-Lindquist coordinates."
+    },
+    {
+        "id": "concept_schwarzschild",
+        "name": "Schwarzschild metric",
+        "category": "spacetime",
+        "tags": ["Schwarzschild", "static", "black hole", "metric", "limit"],
+        "related_equations": ["eq_schwarzschild_metric"],
+        "related_concepts": ["concept_kerr_metric", "concept_event_horizon", "concept_boyer_lindquist"],
+        "notes": "Static spherically symmetric vacuum solution. Recovered from Kerr by setting a=0."
+    },
+    {
+        "id": "concept_event_horizon",
+        "name": "Event horizon",
+        "category": "spacetime",
+        "tags": ["horizon", "Kerr", "black hole", "Delta"],
+        "related_equations": ["eq_kerr_delta", "eq_kerr_outer_horizon"],
+        "related_concepts": ["concept_kerr_metric", "concept_ergosphere", "concept_schwarzschild"],
+        "notes": "Null surface bounding the black hole region. For Kerr, the outer horizon sits at the larger root of Delta=0."
+    },
+    {
+        "id": "concept_ergosphere",
+        "name": "Ergosphere",
+        "category": "spacetime",
+        "tags": ["ergosphere", "frame dragging", "static limit", "Kerr"],
+        "related_equations": ["eq_ergosphere_static_limit", "eq_kerr_outer_horizon"],
+        "related_concepts": ["concept_kerr_metric", "concept_event_horizon"],
+        "notes": "Region between the outer horizon and the static limit, where no observer can remain at rest with respect to infinity."
+    },
+    {
+        "id": "concept_israel_junction",
+        "name": "Israel junction conditions",
+        "category": "matching",
+        "tags": ["Israel", "junction", "thin shell", "matching"],
+        "related_equations": ["eq_israel_lanczos", "eq_effective_potential"],
+        "related_concepts": ["concept_wormhole_throat", "concept_surface_stress", "concept_stability"],
+        "notes": "Match two spacetime regions across a thin shell. The jump in extrinsic curvature sources the surface stress-energy."
+    },
+    {
+        "id": "concept_surface_stress",
+        "name": "Surface stress-energy",
+        "category": "matter",
+        "tags": ["surface", "stress-energy", "thin shell", "sigma", "pressure"],
+        "related_equations": ["eq_israel_lanczos", "eq_effective_potential"],
+        "related_concepts": ["concept_israel_junction", "concept_exotic_matter", "concept_wormhole_throat"],
+        "notes": "Surface density and pressure on the shell, read off from the Lanczos equation."
+    },
+    {
+        "id": "concept_exotic_matter",
+        "name": "Exotic matter",
+        "category": "matter",
+        "tags": ["exotic matter", "NEC", "energy condition", "wormhole"],
+        "related_equations": ["eq_null_energy_condition"],
+        "related_concepts": ["concept_wormhole_throat", "concept_flare_out", "concept_surface_stress"],
+        "notes": "Matter that locally violates the null energy condition. Thin-shell wormholes typically require it at the throat."
+    },
+    {
+        "id": "concept_flare_out",
+        "name": "Flare-out condition",
+        "category": "geometry",
+        "tags": ["flare-out", "throat", "shape function", "Morris-Thorne"],
+        "related_equations": ["eq_flare_out"],
+        "related_concepts": ["concept_wormhole_throat", "concept_exotic_matter"],
+        "notes": "Geometric requirement that the areal radius have a minimum at the throat, so the geometry opens out on both sides."
     },
     {
         "id": "concept_stability",
@@ -14,16 +86,16 @@
         "category": "analysis",
         "tags": ["stability", "perturbation", "equilibrium"],
         "related_equations": ["eq_effective_potential_second_derivative"],
-        "related_concepts": ["concept_kerr_metric", "concept_wormhole_throat"],
-        "notes": "Used to test whether a configuration remains near equilibrium under perturbatins."
+        "related_concepts": ["concept_kerr_metric", "concept_wormhole_throat", "concept_israel_junction"],
+        "notes": "Used to test whether a configuration remains near equilibrium under perturbations."
     },
     {
         "id": "concept_wormhole_throat",
         "name": "Wormhole throat",
         "category": "geometry",
-        "tags": ["wormhole","throat", "junction surface"],
-        "related_equations": ["eq_effective_potential"],
-        "related_concepts": ["concept_stability", "concept_kerr_metric"],
+        "tags": ["wormhole", "throat", "junction surface"],
+        "related_equations": ["eq_effective_potential", "eq_flare_out"],
+        "related_concepts": ["concept_stability", "concept_kerr_metric", "concept_israel_junction", "concept_flare_out", "concept_exotic_matter"],
         "notes": "The minimal-area hypersurface connecting regions in a wormhole model."
     }
 ]

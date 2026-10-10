@@ -1,27 +1,112 @@
 [
     {
+        "id": "eq_kerr_sigma",
+        "name": "Kerr Sigma",
+        "expression": "Sigma = r^2 + a^2 cos^2 theta",
+        "variables": ["Sigma", "r", "a", "theta"],
+        "tags": ["Kerr", "metric", "auxiliary"],
+        "related_concepts": ["concept_kerr_metric", "concept_boyer_lindquist"],
+        "related_equations": ["eq_kerr_metric_symbolic", "eq_kerr_delta"],
+        "notes": "Boyer-Lindquist radial-angular combination appearing in the Kerr line element."
+    },
+    {
+        "id": "eq_kerr_delta",
+        "name": "Kerr Delta",
+        "expression": "Delta = r^2 - 2 M r + a^2",
+        "variables": ["Delta", "r", "M", "a"],
+        "tags": ["Kerr", "horizon", "auxiliary"],
+        "related_concepts": ["concept_kerr_metric", "concept_event_horizon", "concept_boyer_lindquist"],
+        "related_equations": ["eq_kerr_metric_symbolic", "eq_kerr_sigma", "eq_kerr_outer_horizon"],
+        "notes": "Horizon function; roots of Delta=0 locate the inner and outer Kerr horizons."
+    },
+    {
         "id": "eq_kerr_metric_symbolic",
-        "name": "Kerr metric symbolic form",
-        "expression": "ds^2 = ...",
+        "name": "Kerr metric (Boyer-Lindquist)",
+        "expression": "ds^2 = -(1 - 2 M r / Sigma) dt^2 - (4 M a r sin^2 theta / Sigma) dt dphi + (Sigma / Delta) dr^2 + Sigma dtheta^2 + (r^2 + a^2 + 2 M a^2 r sin^2 theta / Sigma) sin^2 theta dphi^2",
+        "variables": ["t", "r", "theta", "phi", "M", "a", "Sigma", "Delta"],
         "tags": ["Kerr", "metric", "spacetime"],
-        "related_concepts": ["concept_kerr_metric"],
-        "notes": "Placeholder symbolic form for the Kerr geometry."
+        "related_concepts": ["concept_kerr_metric", "concept_boyer_lindquist"],
+        "related_equations": ["eq_kerr_sigma", "eq_kerr_delta", "eq_schwarzschild_metric"],
+        "notes": "Rotating vacuum black hole in Boyer-Lindquist coordinates. Recovers Schwarzschild when a=0."
+    },
+    {
+        "id": "eq_kerr_outer_horizon",
+        "name": "Kerr outer horizon",
+        "expression": "r_+ = M + sqrt(M^2 - a^2)",
+        "variables": ["r_+", "M", "a"],
+        "tags": ["Kerr", "horizon", "r+"],
+        "related_concepts": ["concept_event_horizon", "concept_kerr_metric", "concept_ergosphere"],
+        "related_equations": ["eq_kerr_delta", "eq_ergosphere_static_limit"],
+        "notes": "Larger root of Delta=0, assuming |a| <= M. The inner horizon is r_- = M - sqrt(M^2 - a^2)."
+    },
+    {
+        "id": "eq_ergosphere_static_limit",
+        "name": "Kerr static limit",
+        "expression": "r_ergo(theta) = M + sqrt(M^2 - a^2 cos^2 theta)",
+        "variables": ["r_ergo", "M", "a", "theta"],
+        "tags": ["ergosphere", "static limit", "Kerr", "frame dragging"],
+        "related_concepts": ["concept_ergosphere", "concept_kerr_metric"],
+        "related_equations": ["eq_kerr_outer_horizon", "eq_kerr_metric_symbolic"],
+        "notes": "Surface g_tt=0. It coincides with r_+ at the poles and lies outside the horizon at the equator."
+    },
+    {
+        "id": "eq_schwarzschild_metric",
+        "name": "Schwarzschild metric",
+        "expression": "ds^2 = -(1 - 2 M / r) dt^2 + (1 - 2 M / r)^{-1} dr^2 + r^2 (dtheta^2 + sin^2 theta dphi^2)",
+        "variables": ["t", "r", "theta", "phi", "M"],
+        "tags": ["Schwarzschild", "metric", "static", "limit"],
+        "related_concepts": ["concept_schwarzschild", "concept_event_horizon"],
+        "related_equations": ["eq_kerr_metric_symbolic"],
+        "notes": "Kerr with a=0. Horizon at r=2M."
+    },
+    {
+        "id": "eq_israel_lanczos",
+        "name": "Lanczos-Israel equation",
+        "expression": "S_ab = - (1 / 8 pi) ([K_ab] - h_ab [K])",
+        "variables": ["S_ab", "K_ab", "h_ab", "K"],
+        "tags": ["Israel", "junction", "Lanczos", "thin shell"],
+        "related_concepts": ["concept_israel_junction", "concept_surface_stress", "concept_wormhole_throat"],
+        "related_equations": ["eq_effective_potential", "eq_null_energy_condition"],
+        "notes": "Jump [K_ab] in extrinsic curvature across the shell determines the surface stress-energy S_ab."
     },
     {
         "id": "eq_effective_potential",
-        "name": "Effective potential",
-        "expression": "V(a) = ...",
-        "variables": ["a", "sigma", "p"],
+        "name": "Thin-shell throat dynamics",
+        "expression": "dot(a)^2 + V(a) = 0,  V(a) = f(a) - (2 pi sigma a)^2",
+        "variables": ["a", "sigma", "f"],
         "tags": ["potential", "throat", "dynamics"],
-        "related_concepts": ["concept_wormhole_throat", "concept_stability"],
-        "notes": "Represents an effective potential governing throat evolution."
+        "related_concepts": ["concept_wormhole_throat", "concept_stability", "concept_israel_junction", "concept_surface_stress"],
+        "related_equations": ["eq_effective_potential_second_derivative", "eq_israel_lanczos"],
+        "notes": "Schematic Israel-junction reduction for a spherical thin shell of surface density sigma. f(a) is the metric function on each side of the throat."
     },
     {
         "id": "eq_effective_potential_second_derivative",
         "name": "Second derivative stability criterion",
-        "expression": "V''(a_0) > 0",
-        "variables": ["stability", "equilibrium", "criterion"],
+        "expression": "V''(a_0) > 0  at  V(a_0)=0, V'(a_0)=0",
+        "variables": ["a_0"],
+        "tags": ["stability", "equilibrium", "criterion"],
         "related_concepts": ["concept_stability", "concept_wormhole_throat"],
-        "notes": "A common local stability condition near equilibrium."
+        "related_equations": ["eq_effective_potential"],
+        "notes": "Local stability of an equilibrium throat radius a_0 requires a potential minimum."
+    },
+    {
+        "id": "eq_flare_out",
+        "name": "Morris-Thorne flare-out",
+        "expression": "b(r_0) = r_0,  b'(r_0) < 1",
+        "variables": ["b", "r_0"],
+        "tags": ["flare-out", "shape function", "throat", "Morris-Thorne"],
+        "related_concepts": ["concept_flare_out", "concept_wormhole_throat", "concept_exotic_matter"],
+        "related_equations": ["eq_null_energy_condition"],
+        "notes": "Shape function b(r) must meet the throat and open outward. This typically forces a NEC violation."
+    },
+    {
+        "id": "eq_null_energy_condition",
+        "name": "Null energy condition",
+        "expression": "T_mu_nu k^mu k^nu >= 0  for all null k^mu",
+        "variables": ["T", "k"],
+        "tags": ["NEC", "energy condition", "exotic matter"],
+        "related_concepts": ["concept_exotic_matter", "concept_flare_out", "concept_surface_stress"],
+        "related_equations": ["eq_flare_out", "eq_israel_lanczos"],
+        "notes": "Ordinary matter satisfies the NEC. Traversable wormhole throats generally require a local violation."
     }
 ]
